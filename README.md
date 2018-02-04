@@ -1,2 +1,2 @@
 # web-technologies
-Uni work for web technologies
+Coursework 1 for web technologies
