@@ -3,162 +3,149 @@
     <head>
         <title>Example Website | Home</title>
 
-        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
-        <script src="jquery-3.1.1.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 
     </head>
     <body>
 
-        <div id="header">
-    	   <h1 id="heading">Showcase Gallery:-</h1>
-
-           <div id="hamburger">
-               <div id="bar">
-               </div>
-           </div>
-
-           <div id="side-bar" class="clicked">
+        <header id="header">
+            <div>
+                <a href="#" onclick="return false;"><img src="img/logo.svg" alt="Cipher logo"></a>
+            </div>
+            <div>
                 <ul>
-                    <li>
-                        <a href="#showcase1">
-                            One
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#showcase2">
-                            Two
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#showcase3">
-                            Three
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#showcase4">
-                            Four
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#showcase5">
-                            Five
-                        </a>
-                    </li>
+                    <li><a id="morse-code-link" href="#morse-code">Morse Code</a></li>
+                    <li><a id="caesar-cipher-link" href="#caesar-cipher">Caesar Cipher</a></li>
+                    <li><a id="pigpen-cipher-link" href="#pigpen-cipher">Pigpen Cipher</a></li>
                 </ul>
             </div>
-        </div>
+        </header>
 
-        <div id="body">
-
-            <div class="showcase" id="showcase1">
-                <h1>Showcase 1</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eveniet culpa, ad impedit inventore consequuntur ratione expedita sapiente accusantium corrupti repudiandae sed iusto, minima at. Commodi maxime veniam, possimus dicta.
-                </p>
+        <section id="title">
+            <div id="section-inner">
+                <img id="enigma-machine" src="img/enigma-machine.png" alt="Image of a 1940s Enigma Machine">
+                <div id="title-text">
+                    <h1>A breif history of ciphers</h1>
+                    <img src="img/morse-spacer.svg" alt="">
+                    <p>From royalty to international organisations, military forces to serial killers. Ciphers have had many users, all with things to hide. Scroll to unlock histories best kept secrets.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="showcase" id="showcase2">
-                <h1>Showcase 2</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius illum illo ab assumenda architecto consectetur explicabo aliquam ad quis quaerat vitae reprehenderit odit accusamus porro impedit, sed ipsam, rem quibusdam!
-                </p>
-            </div>
+        <section id="intro">
+            <p id="code-background">+@$@)+1$@!#!0${(0[!@$@!$%(0[?!$%0[@$@!$%(0[?)$!#!0?!$%(0[${($%(0[?)$!#!0?!$%(0[${(</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
 
-            <div class="showcase" id="showcase3">
-                <h1>Showcase 3</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eveniet aliquam cumque molestiae minus, ipsam quibusdam quas vitae, voluptate modi repellat vero officiis debitis nobis! Ipsa minus, quia perferendis autem!
-                </p>
-            </div>
-
-            
-        </div>
-
-        
-
-
-    	<script type="text/javascript">
-
-
-    		$(window).on("load scroll", function(){
-
-                // distance to trigger
-                var fromTopPx = 430;
-                // Stores scroll height in variable
-                var yPos = $(window).scrollTop();
-
-
-
-                // PADDING RESIZE
-                var paddingTopAndBottom = (400 - yPos) * 0.48;
-                var paddingLeft = (400 - yPos) * 0.2;
-
-                if (yPos < fromTopPx) {
-                    $('#header').css("padding-top", paddingTopAndBottom);
-                    $('#header').css("padding-bottom", paddingTopAndBottom);
-                    $('#header').css("padding-left", paddingLeft);
-                } else {
-                    $('#header').css("padding-top", 0);
-                    $('#header').css("padding-bottom", 0);
-                    $('#header').css("padding-left", 0);
-                }
-
-
-
-                // FONT RESIZE
-                var fontSize = 25;
-                var a = fontSize + ((430 - yPos) * 0.03);
-
-                if (yPos < fromTopPx) {
-                    $('#heading').css("font-size", a);
-                }
-
-
-                // Add and remove box-shadow to header
-                if (yPos < 400){
-                    $('#header').removeClass('scrolled');
-                }
-
-                else {
-                    $('#header').addClass('scrolled');
-                }
+        <section id="morse-code">
+            <div id="section-inner">
                 
-            });
+            </div>
+        </section>
+        <section id="caesar-cipher"></section>
+        <section id="pigpen-cipher"></section>
 
-            $('#hamburger').on('click', function(){
-                $('#bar, #wrapper, #side-bar').toggleClass('clicked');
-            });
-
-            $(document).ready(function(){
-              // Add smooth scrolling to all links
-              $("a").on('click', function(event) {
-
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                  // Prevent default anchor click behavior
-                  event.preventDefault();
-
-                  // Store hash
-                  var hash = this.hash;
-
-                  // Using jQuery's animate() method to add smooth page scroll
-                  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                  $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                  }, 800, function(){
-               
-                    // Add hash (#) to URL when done scrolling (default click behavior)
-                    window.location.hash = hash;
-                  });
-                } // End if
-              });
-            });
-
-    	</script>
+        <footer>
+            <a href="#">Unlock our design literature →</a>
+        </footer>
         
+
+        <script type="text/javascript">
+
+            window.addEventListener('scroll', scrollFunctions);
+            // window.addEventListener("mousemove", followMouse);
+
+            function scrollFunctions() {
+                headerClassAdder();
+                imageScroll();
+                navLinkCheckers();
+            }
+
+            function headerClassAdder() {
+                var element = document.getElementById('header');
+                var scrollPos = document.documentElement.scrollTop;
+
+                if (scrollPos >= 1) {
+                    element.classList.add('scrolled');
+                } else {
+                    element.classList.remove('scrolled');
+                }
+            }
+
+            function imageScroll() {
+                var enigmaMachine = document.getElementById('enigma-machine');
+                var scrollPos = document.documentElement.scrollTop;
+
+                enigmaMachine.style.top = 100 - (scrollPos * 0.2) + 'px';
+            }
+
+
+            // function followMouse() {
+
+            //     var x = event.clientX;
+            //     var y = event.clientY;
+
+            //     var enigmaMachine = document.getElementById("enigma-machine");
+
+            //     enigmaMachine.style.top = (y / 40) + "px";
+            //     enigmaMachine.style.right = 100 - (x / 50) + "px";
+
+            // }
+
+            function navLinkCheckers() {
+                var morseCodeLink = document.getElementById('morse-code-link');
+                var caesarCipherLink = document.getElementById('caesar-cipher-link');
+                var pigpenCipherLink = document.getElementById('pigpen-cipher-link');
+
+                var morseCodePos = document.getElementById('morse-code').offsetTop;
+                var caesarCipherPos = document.getElementById('caesar-cipher').offsetTop;
+                var pigpenCipherPos = document.getElementById('pigpen-cipher').offsetTop;
+
+                var scrollPos = document.documentElement.scrollTop + 64;
+
+                if (scrollPos <= morseCodePos) {
+                    morseCodeLink.classList.remove('scrolled');
+                    caesarCipherLink.classList.remove('scrolled');
+                    pigpenCipherLink.classList.remove('scrolled');
+                }
+                if (scrollPos >= morseCodePos) {
+                    morseCodeLink.classList.add('scrolled');
+                    caesarCipherLink.classList.remove('scrolled');
+                    pigpenCipherLink.classList.remove('scrolled');
+                }
+                if (scrollPos >= caesarCipherPos) {
+                    morseCodeLink.classList.remove('scrolled');
+                    caesarCipherLink.classList.add('scrolled');
+                    pigpenCipherLink.classList.remove('scrolled');
+                }
+                if (scrollPos >= pigpenCipherPos) {
+                    morseCodeLink.classList.remove('scrolled');
+                    caesarCipherLink.classList.remove('scrolled');
+                    pigpenCipherLink.classList.add('scrolled');
+                }
+            }
+
+
+        </script>
 
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
