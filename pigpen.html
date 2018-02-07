@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Cypher Info | Home</title>
+        <title>Cypher Info | Pigpen</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/styles-global.css">
-        <link rel="stylesheet" type="text/css" href="css/styles-home.css">
+        <link rel="stylesheet" type="text/css" href="css/styles-pigpen.css">
 
 
     </head>
@@ -18,29 +18,28 @@
 
         <header id="header">
             <div>
-                <a href="#" onclick="return false;"><img src="img/logo.svg" alt="Cipher logo"></a>
+                <a href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
             </div>
             <div>
                 <ul>
                     <li><a id="morse-code-link" href="morse.html">Morse Code</a></li>
                     <li><a id="caesar-cipher-link" href="caesar.html">Caesar Cipher</a></li>
-                    <li><a id="pigpen-cipher-link" href="pigpen.html">Pigpen Cipher</a></li>
+                    <li><a class="selected" id="pigpen-cipher-link" href="#" onclick="return false;">Pigpen Cipher</a></li>
                 </ul>
             </div>
         </header>
 
         <section id="title">
-            <div id="section-inner">
-                <img id="enigma-machine" src="img/enigma-machine.png" alt="Image of a 1940s Enigma Machine">
+            <div id="section-inner" style="background: #FFD369;">
                 <div id="title-text">
-                    <h1>A breif history of ciphers</h1>
+                    <h1>Pigpen Cypher</h1>
                     <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
                         <title>Group 13</title>
                         <desc>Created with Sketch.</desc>
                         <defs></defs>
                         <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
-                            <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#212121">
+                            <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#ffffff">
                                 <g id="Group-4" transform="translate(32.000000, 0.000000)">
                                     <g id="Group-6" transform="translate(69.088660, 70.000000)">
                                         <g id="Group-13" transform="translate(0.000000, 186.000000)">
@@ -52,36 +51,23 @@
                             </g>
                         </g>
                     </svg>
-                    <p>From royalty to international organisations, military forces to serial killers. Ciphers have had many users, all with things to hide. Scroll to unlock histories best kept secrets.</p>
                 </div>
             </div>
         </section>
 
-        <section id="intro">
 
-            <div id="intro-text">
-                <p id="code-background">+@$@)+1$@!#!0${(0[!@$@!$%(0[?!$%0[@$@!$%(0[?)$!#!0?!$%(0[${($%(0[?)$!#!0?!$%(0[${(</p>
-                <p>Cyphers are repeatable steps called algorithms that are used to encrypt or decrypt secret messages. A message is entered into a cypher, it is processed through the cypher's algorithm, and then an encrypted message is produced as the output.</p>
-            </div>
-
-
-
-            <div id="cypher-steps">
-                <ul>
-                    <li id="card1"><img src="img/input.svg" alt=""><br>Input</li>
-                    <li><img src="img/arrow.svg" alt=""></li>
-                    <li id="card2"><img src="img/process.svg" alt=""><br>Cypher</li>
-                    <li><img src="img/arrow.svg" alt=""></li>
-                    <li id="card3"><img src="img/output.svg" alt=""><br>Output</li>
-                </ul>
-            </div>
-
+        <section class="translator-bottom-links">
+            <a href="caesar.html" style="background-image: url('img/caesar.png');">
+                Caesar Translator
+                <br>
+                <img src="img/arrow-left.svg" alt="">
+            </a>
+            <a href="morse.html" style="background-image: url('img/morse.png');">
+                Morse Translator
+                <br>
+                <img src="img/arrow-right.svg" alt="">
+            </a>
         </section>
-
-        <section id="morse-code">
-        </section>
-        <section id="caesar-cipher"></section>
-        <section id="pigpen-cipher"></section>
 
         <footer>
             <a class="cta" href="design.html">Unlock our design literature &rarr;</a>
@@ -95,8 +81,6 @@
 
             function scrollFunctions() {
                 headerClassAdder();
-                imageScroll();
-                // navLinkCheckers();
             }
 
 
@@ -110,21 +94,6 @@
                 } else {
                     element.classList.remove('scrolled');
                 }
-            }
-
-
-            // Scroll 
-            function imageScroll() {
-                var enigmaMachine = document.getElementById('enigma-machine');
-                var card1 = document.getElementById('card1');
-                var card2 = document.getElementById('card2');
-                var card3 = document.getElementById('card3');
-                var scrollPos = window.scrollY;
-
-                enigmaMachine.style.top = 100 - (scrollPos * 0.2) + 'px';
-                card1.style.transform = "translateY(" + (100 - (scrollPos * 0.1)) + 'px)';
-                card2.style.transform = "translateY(" + (300 - (scrollPos * 0.3)) + 'px)';
-                card3.style.transform = "translateY(" + (200 - (scrollPos * 0.2)) + 'px)';
             }
 
 

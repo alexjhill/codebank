@@ -15,20 +15,73 @@ body {
 }
 
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-	font-size: 70px;
 	margin: 0;
 	font-weight: bold;
-	color: #212121;
+	color: #202724;
+	max-width: 600px;
+}
+
+h1 {
+	font-size: 70px;
+} h2 {
+	font-size: 55px;
+} h3 {
+	font-size: 40px;
+} h4 {
+	font-size: 30px;
+} h5 {
+	font-size: 25px;
+} h6 {
+	font-size: 20px;
 }
 
 p {
 	font-family: "Lato", Sans-Serif;
 	font-size: 18px;
-	color: #212121;
+	color: #202724;
 	line-height: 2;
 	margin: 0;
+	max-width: 600px;
+}
+
+a {
+	padding: 5px;
+	color: rgba(33, 33, 33, 0.5);
+	font-size: 16px;
+	text-decoration: none;
+	font-family: "Lato", Sans-Serif;
+	transition: .2s;
+} a:hover {
+	color: rgba(33, 33, 33, 1);
+	transition: .2s;
+} a.selected {
+	font-weight: bold;
+	color: rgba(33, 33, 33, 1);
+}
+
+.cta {
+	position: relative;
+	font-family: Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-size: 30px;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px 0;
+} .cta:hover {
+	color: #fff;
+} .cta::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	width: 20px;
+	height: 4px;
+	transition: .2s;
+} .cta:hover::after {
+	width: 100%;
+	transition: .4s;
 }
 
 header {
@@ -58,39 +111,67 @@ header {
 	margin-left: auto;
 } header ul li {
 	display: inline-block;
-} header ul li a {
-	position: relative;
-	padding: 5px 10px;
 	margin: 0 10px;
-	color: rgba(33, 33, 33, .5);
-	text-decoration: none;
-	border-bottom: 0px solid #212121;
-	transition: .2s;
-} header ul li a:hover {
-	color: rgba(33, 33, 33, 1);
-	transition: .2s;
-} header ul li a::after {
-	content: "";
-	position: absolute;
-	bottom: -18px;
-	left: 50%;
-	transform: translate(-50%);
-	height: 0px;
-	width: 30px;
-	background: #212121;
-	transition: .2s;
-} header ul li a.scrolled {
-	color: rgba(33, 33, 33, 1);
-	transition: .2s;
-} header ul li a.scrolled::after {
-	height: 3px;
-	transition: .2s;
 }
 
 
 
 
+section#title {
+	padding: 80px 30px 30px 30px;
+	background: #fff;
+} section#title #section-inner {
+	position: relative;
+	padding: 80px 10% 160px 10%;
+	overflow: hidden;
+	z-index: 1;
+	border-radius: 5px;
+} section#title #section-inner h1 {
+	color: #fff;
+} section#title #section-inner #title-text svg {
+	width: 50px;
+	margin: 30px 0;
+}
 
+
+
+.translator-bottom-links {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 30px 30px 30px;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 500px;
+} .translator-bottom-links a {
+	position: relative;
+	padding: 70px 0;
+	width: calc(50% - 15px);
+	text-align: center;
+	font-size: 28px;
+	text-decoration: none;
+	color: #fff;
+	font-family: "Lato", Sans-Serif;
+	background-position: center center;
+	border-radius: 5px;
+	z-index: 1;
+	background-size: 100%;
+	transition: .3s;
+} .translator-bottom-links a::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	z-index: -1;
+} .translator-bottom-links a:hover {
+	background-size: 110%;
+	transition: .3s;
+} .translator-bottom-links a img {
+	margin-top: 10px;
+}
 
 
 
@@ -103,25 +184,6 @@ footer {
 	background: #202724;
 	text-align: center;
 	z-index: -10;
-} footer a {
-	position: relative;
-	font-family: Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-	font-size: 30px;
-	color: rgba(255, 255, 255, 1);
-	text-decoration: none;
-	padding: 20px 0;
-} footer a::before {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background: #fff;
-	width: 20px;
-	height: 4px;
-	transition: .2s;
-} footer a:hover::before {
-	width: 100%;
-	transition: .4s;
 }
 
 

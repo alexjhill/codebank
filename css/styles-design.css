@@ -1,0 +1,95 @@
+
+
+
+
+
+
+#design-menu {
+	position: fixed;
+	left: 71%;
+	top: 100px;
+} #design-menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+} #design-menu ul li {
+	margin: 15px 0;
+} #design-menu ul li a {
+	font-size: 18px;
+} #design-menu ul li a.selected {
+	margin-left: 5px;
+	border-left: 3px solid #202724;
+}
+
+section#title #section-inner{
+	padding: 80px 10% 80px 10%;
+	width: 70%;
+	height: 3000px;
+} section#title #section-inner h1 {
+	color: #202724;
+}
+
+
+.spec-section {
+	margin-top: 150px;
+} .section-header {
+	margin: 30px 0;
+}
+
+.cta {
+	color: #202724;
+} .cta:hover {
+	color: #202724;
+} .cta::after {
+	background: #202724;
+} .cta:hover::after {
+	background: #202724;
+}
+
+#colours ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+} #colours ul li {
+	position: relative;
+	margin: 0 40px 80px 0;
+	width: 160px;
+	line-height: 0;
+	padding: 80px 0;
+	text-align: center;
+	color: #fff;
+	border-radius: 3px;
+} #colours ul li::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 103%;
+	left: 0;
+	font-family: "Lato", Sans-Serif;
+	font-size: 18px;
+	line-height: initial;
+	text-align: left;
+	color: #202724;
+}
+
+
+
+
+
+@media only screen and (max-width: 750px) {
+
+	#design-menu {
+		display: none;
+	}
+	.design-section {
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+
