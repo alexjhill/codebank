@@ -14,7 +14,7 @@ section#title #section-inner {
 } section#title #enigma-machine {
 	position: absolute;
 	top: 100px;
-	right: 100px;
+	right: 0;
 	width: 600px;
 	z-index: -1;
 	transform: rotate(-16deg);
@@ -24,7 +24,7 @@ section#intro #intro-text {
 	position: relative;
 	width: 100%;
 	background: #202724;
-	padding: 150px;
+	padding: 150px 10%;
 	text-align: center;
 	overflow: hidden;
 } section#intro #intro-text #code-background {
@@ -50,10 +50,10 @@ section#intro #intro-text {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 	list-style-type: none;
 	padding: 0;
 	margin: -50px 0 0 0;
-	width: 100%;
 } #cypher-steps ul li:nth-child(odd) {
 	background: #fff;
 	padding: 60px;
@@ -102,6 +102,69 @@ section#intro #intro-text {
 }
 
 
+
+@media only screen and (max-width: 950px) {
+
+
+	/*#cypher-steps ul li:nth-child(odd) {
+		padding: 5%;
+		margin: 2%;
+	} #cypher-steps ul li:nth-child(odd) img {
+		height: 80px;
+	} #cypher-steps ul li:nth-child(even) img {
+		width: 30px;
+	}*/
+}
+
+
+@media only screen and (max-width: 650px) {
+
+	section#intro #intro-text {
+		padding: 120px 10%;
+	} section#intro #intro-text #code-background {
+		font-size: 100px;
+	} section#title #enigma-machine {
+		position: relative;
+		top: 0;
+		display: block;
+		margin: 20px auto;
+		width: 300px;
+		z-index: -1;
+		transform: rotate(0deg);
+	}
+
+	#cypher-steps {
+		width: 100vw
+	}
+	#cypher-steps ul {
+		position: absolute;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		list-style-type: none;
+		padding: 0;
+		margin: -50px 0 0 0;
+		overflow-x: scroll;
+	} #cypher-steps ul li:nth-child(odd) {
+		background: #fff;
+		padding: 60px;
+		margin: 30px;
+		color: #212121;
+		font-weight: bold;
+		font-family: "Lato", Sans-Serif;
+		text-align: center;
+		box-shadow: 1px 2px 50px 0 rgba(0, 0, 0, 0.24);
+		border-radius: 5px;
+	} #cypher-steps ul li:nth-child(odd) img {
+		margin-bottom: 30px;
+		height: 100px;
+	}
+
+
+	#pigpen-cipher {
+		margin-bottom: 400px;
+	}
+}
 
 
 
