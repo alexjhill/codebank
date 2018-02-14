@@ -4,19 +4,19 @@
 
 
 
-#design-menu {
+aside {
 	position: fixed;
 	left: 71%;
 	top: 100px;
-} #design-menu ul {
+} aside ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-} #design-menu ul li {
+} aside ul li {
 	margin: 15px 0;
-} #design-menu ul li a {
+} aside ul li a {
 	font-size: 18px;
-} #design-menu ul li a.selected {
+} aside ul li a.selected {
 	margin-left: 5px;
 	border-left: 3px solid #202724;
 }

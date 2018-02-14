@@ -51,6 +51,15 @@
                         </g>
                     </svg>
                 </div>
+                <div id="translator">
+                    <div>
+                        <textarea name="" id="english-textarea" cols="30" rows="10" placeholder="English"></textarea>
+                    </div>
+                    <img onclick="morseTranslator()" src="img/translate.svg" alt="">
+                    <div>
+                        <textarea name="" id="morse-textarea" cols="30" rows="10" placeholder="Morse"></textarea>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -93,6 +102,15 @@
                 } else {
                     element.classList.remove('scrolled');
                 }
+            }
+
+
+            function morseTranslator() {
+                var englishTextarea = document.getElementById("english-textarea");
+                var morseTextarea = document.getElementById("morse-textarea");
+
+
+                
             }
 
 
