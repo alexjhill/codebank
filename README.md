@@ -1,2 +1,1 @@
-![Alt Text](https://alexhill.io/img/codebank.gif)
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Gif of CodeBank website](https://media.giphy.com/media/kfXvzrT0yeO5TdkhIR/giphy.gif)
