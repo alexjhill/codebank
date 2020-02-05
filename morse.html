@@ -11,53 +11,75 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/styles-global.css">
 
+        <script type="text/javascript" src="js/header.js"></script>
+        <script type="text/javascript" src="js/morse.js"></script>
+
 
     </head>
     <body>
 
         <header id="header">
             <div>
-                <a href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
+                <a id="logo" href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
             </div>
-            <div>
+            <div id="menu-icon" onclick="menuShow()">
+                <div></div>
+            </div>
+            <nav id="menu">
                 <ul>
-                    <li><a class="selected" id="morse-code-link" href="#" onclick="return false;">Morse Code</a></li>
+                    <li><a class="selected" id="morse-code-link" href="morse.html">Morse Code</a></li>
                     <li><a id="caesar-cipher-link" href="caesar.html">Caesar Cipher</a></li>
-                    <li><a id="pigpen-cipher-link" href="pigpen.html">Pigpen Cipher</a></li>
                 </ul>
-            </div>
+            </nav>
         </header>
 
         <section id="title">
             <div id="section-inner" style="background: #60BE98;">
-                <div id="title-text">
-                    <h1>Morse code</h1>
-                    <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-                        <title>Group 13</title>
-                        <desc>Created with Sketch.</desc>
-                        <defs></defs>
-                        <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
-                            <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#ffffff">
-                                <g id="Group-4" transform="translate(32.000000, 0.000000)">
-                                    <g id="Group-6" transform="translate(69.088660, 70.000000)">
-                                        <g id="Group-13" transform="translate(0.000000, 186.000000)">
-                                            <circle id="Oval-3" cx="39.9113402" cy="4.5" r="4"></circle>
-                                            <rect id="Rectangle-2" x="0" y="1" width="26" height="7" rx="1"></rect>
+                <div class="wrapper">
+                    <div id="title-text">
+                        <h1>Morse code</h1>
+                        <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                            <title>Group 13</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
+                                <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#ffffff">
+                                    <g id="Group-4" transform="translate(32.000000, 0.000000)">
+                                        <g id="Group-6" transform="translate(69.088660, 70.000000)">
+                                            <g id="Group-13" transform="translate(0.000000, 186.000000)">
+                                                <circle id="Oval-3" cx="39.9113402" cy="4.5" r="4"></circle>
+                                                <rect id="Rectangle-2" x="0" y="1" width="26" height="7" rx="1"></rect>
+                                            </g>
                                         </g>
                                     </g>
                                 </g>
                             </g>
-                        </g>
-                    </svg>
-                </div>
-                <div id="translator">
-                    <div>
-                        <textarea name="" id="english-textarea" cols="30" rows="10" placeholder="English"></textarea>
+                        </svg>
                     </div>
-                    <img onclick="morseTranslator()" src="img/translate.svg" alt="">
-                    <div>
-                        <textarea name="" id="morse-textarea" cols="30" rows="10" placeholder="Morse"></textarea>
+                    <div id="cypher-content">
+                        <div id="description">
+                            <h6><strong># &nbsp;History</strong></h6>
+                            <p>Morse code was invented by Samuel Morse in 1836 when he demonstrated that a telegraph machine could be used to transmit messages over wires. Morse code was used during World War 2 for its speed of transmission, clearity, and it's encoding, especially when paired with other cypher technique such as the famous enigma machines.</p>
+                            <!-- http://www.wrvmuseum.org/morsecodehistory.htm -->
+
+                            <h6><strong># &nbsp;How it works</strong></h6>
+                            <p>Morse consists of two types of electronic signals; a shorter (dot) and a longer (dash). Various combinations of these are used to represent letters, numbers and, depending on its application, specific keywords.</p>
+                            
+                            <h6><strong># &nbsp;Translator</strong></h6>
+                            <p class="emphasis">Enter A-Z or 0-9 in the 'English' text box, or full-stops ( . ), hyphens ( - ) and strokes ( / ) in the 'Morse' text box. The translator will automatically translate entries.</p>
+                        </div>
+                        <div id="translator">
+                            <div class="textarea">
+                                <label for="english-textarea">English</label>
+                                <textarea onkeyup="morseEncypher()" onfocus="this.select();" name="" id="english-textarea"></textarea>
+                            </div>
+                            <img src="img/translate.svg" alt="">
+                            <div class="textarea">
+                                <label for="morse-textarea">Morse</label>
+                                <textarea onkeyup="morseDecypher()" onfocus="this.select();" name="" id="morse-textarea"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,12 +87,8 @@
 
 
         <section class="translator-bottom-links">
-            <a href="pigpen.html" style="background-image: url('img/pigpen.png');">
-                Pigpen Translator
-                <br>
-                <img src="img/arrow-left.svg" alt="">
-            </a>
-            <a href="caesar.html" style="background-image: url('img/caesar.png');">
+            <a href="caesar.html">
+                <span style="background-image: url('img/caesar.png');"></span>
                 Caesar Translator
                 <br>
                 <img src="img/arrow-right.svg" alt="">
@@ -80,41 +98,6 @@
         <footer>
             <a class="cta" href="design.html">Unlock our design literature &rarr;</a>
         </footer>
-        
-
-        <script type="text/javascript">
-
-            window.addEventListener('scroll', scrollFunctions);
-            // window.addEventListener("mousemove", followMouse);
-
-            function scrollFunctions() {
-                headerClassAdder();
-            }
-
-
-            // Changes header style on scroll
-            function headerClassAdder() {
-                var element = document.getElementById('header');
-                var scrollPos = window.scrollY;
-
-                if (scrollPos >= 1) {
-                    element.classList.add('scrolled');
-                } else {
-                    element.classList.remove('scrolled');
-                }
-            }
-
-
-            function morseTranslator() {
-                var englishTextarea = document.getElementById("english-textarea");
-                var morseTextarea = document.getElementById("morse-textarea");
-
-
-                
-            }
-
-
-        </script>
 
     </body>
 </html>

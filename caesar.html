@@ -12,70 +12,91 @@
         <link rel="stylesheet" type="text/css" href="css/styles-global.css">
         <link rel="stylesheet" type="text/css" href="css/styles-caesar.css">
 
+        <script type="text/javascript" src="js/header.js"></script>
+        <script type="text/javascript" src="js/caesar.js"></script>
 
     </head>
     <body>
 
         <header id="header">
             <div>
-                <a href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
+                <a id="logo" href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
             </div>
-            <div>
+            <div id="menu-icon" onclick="menuShow()">
+                <div></div>
+            </div>
+            <nav id="menu">
                 <ul>
                     <li><a id="morse-code-link" href="morse.html">Morse Code</a></li>
-                    <li><a class="selected" id="caesar-cipher-link" href="#" onclick="return false;">Caesar Cipher</a></li>
-                    <li><a id="pigpen-cipher-link" href="pigpen.html">Pigpen Cipher</a></li>
+                    <li><a class="selected" id="caesar-cipher-link" href="caesar.html">Caesar Cipher</a></li>
                 </ul>
-            </div>
+            </nav>
         </header>
 
         <section id="title">
-            <div id="section-inner" style="background: #D05353;">
-                <div id="title-text">
-                    <h1>Caesar Cypher</h1>
-                    <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-                        <title>Group 13</title>
-                        <desc>Created with Sketch.</desc>
-                        <defs></defs>
-                        <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
-                            <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#ffffff">
-                                <g id="Group-4" transform="translate(32.000000, 0.000000)">
-                                    <g id="Group-6" transform="translate(69.088660, 70.000000)">
-                                        <g id="Group-13" transform="translate(0.000000, 186.000000)">
-                                            <circle id="Oval-3" cx="39.9113402" cy="4.5" r="4"></circle>
-                                            <rect id="Rectangle-2" x="0" y="1" width="26" height="7" rx="1"></rect>
+            <div id="section-inner" style="background: #E26969;">
+                <div class="wrapper">
+                    <div id="title-text">
+                        <h1>Caesar Cypher</h1>
+                        <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                            <title>Group 13</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
+                                <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#ffffff">
+                                    <g id="Group-4" transform="translate(32.000000, 0.000000)">
+                                        <g id="Group-6" transform="translate(69.088660, 70.000000)">
+                                            <g id="Group-13" transform="translate(0.000000, 186.000000)">
+                                                <circle id="Oval-3" cx="39.9113402" cy="4.5" r="4"></circle>
+                                                <rect id="Rectangle-2" x="0" y="1" width="26" height="7" rx="1"></rect>
+                                            </g>
                                         </g>
                                     </g>
                                 </g>
                             </g>
-                        </g>
-                    </svg>
+                        </svg>
+                        <div id="cypher-content">
+                            <div id="description">
+                                <h6><strong># &nbsp;History</strong></h6>
+                                <p>The Caesar cypher is named after Julius Caesar who reportedly used it to encrypt military messages and stop them falling into the wrong hands. Caesar's use of this cypher was likely successful as most people during his time weren't literate anyway, and knowledge of cypher use was not widespread.</p>
+                                <!-- https://en.wikipedia.org/wiki/Caesar_cipher#History_and_usage -->
+
+                                <h6><strong># &nbsp;How it works</strong></h6>
+                                <p>Caesar cyphers work by shifting all of the letters in the alphabet to the right by a certain number of spaces. So, in the case of a 3 letter shift, 'A' would become 'D', 'B' would become 'E', and 'C' to 'F'.</p>
+
+                                <h6><strong># &nbsp;Translator</strong></h6>
+                                <p class="emphasis">Use the letter shifter value to decide how many spaces to shift the letters. Then, enter text to cypher in the 'English' text box and text to decypher in the 'Caesar' text box. The translator will automatically translate entries.</p>
+                            </div>
+                            <form id="translator">
+                                <label for="rot-value">Number of letters to shift (0 - 25)</label>
+                                <input id="rot-value" value="0" onfocus="this.select();" onfocusout="this.value = minmax(this.value, 0, 25); caesarEncypher();" type="number" name="rot" min="0" max="25">
+                                <div>
+                                    <label for="english-textarea">English</label>
+                                    <textarea onkeyup="caesarEncypher()" onfocus="this.select();" name="english-textarea" id="english-textarea"></textarea>
+                                </div>
+
+                                <img src="img/translate.svg" alt="">
+
+
+                                <div>
+                                    <label for="caesar-textarea">Caesar</label>
+                                    <textarea onkeyup="caesarDecypher()" onfocus="this.select();" name="caesar-textarea" id="caesar-textarea"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <form id="translator">
-                    <input id="rot-value" onfocus="this.select();" onfocusout="this.value = minmax(this.value, 0, 26)" type="number" name="rot" min="0" max="26">
-                    <div>
-                        <textarea onfocus="this.select();" name="" id="english-textarea" cols="30" rows="10" placeholder="English"></textarea>
-                    </div>
-                    <img onclick="caesarTranslator()" src="img/translate.svg" alt="">
-                    <div>
-                        <textarea onfocus="this.select();" name="" id="caesar-textarea" cols="30" rows="10" placeholder="Caesar"></textarea>
-                    </div>
-                </form>
             </div>
         </section>
 
 
         <section class="translator-bottom-links">
-            <a href="morse.html" style="background-image: url('img/morse.png');">
+            <a href="morse.html">
+                <span style="background-image: url('img/morse.png');"></span>
                 Morse Translator
                 <br>
                 <img src="img/arrow-left.svg" alt="">
-            </a>
-            <a href="pigpen.html" style="background-image: url('img/pigpen.png');">
-                Pigpen Translator
-                <br>
-                <img src="img/arrow-right.svg" alt="">
             </a>
         </section>
 
@@ -83,76 +104,6 @@
             <a class="cta" href="design.html">Unlock our design literature &rarr;</a>
         </footer>
         
-
-        <script type="text/javascript">
-
-            window.addEventListener('scroll', scrollFunctions);
-            // window.addEventListener("mousemove", followMouse);
-
-            function scrollFunctions() {
-                headerClassAdder();
-            }
-
-
-            // Changes header style on scroll
-            function headerClassAdder() {
-                var element = document.getElementById('header');
-                var scrollPos = window.scrollY;
-
-                if (scrollPos >= 1) {
-                    element.classList.add('scrolled');
-                } else {
-                    element.classList.remove('scrolled');
-                }
-            }
-
-            function caesarTranslator() {
-
-                // Get values from page
-                var englishTextarea = document.getElementById("english-textarea");
-                var caesarTextarea = document.getElementById("caesar-textarea");
-                var rotValue = parseInt(document.getElementById("rot-value").value);
-
-                var englishValue = englishTextarea.value;
-                var caesarValue = caesarTextarea.value;
-
-                
-
-                var outputString = "";
-
-
-
-
-                for (var i = 0; i < englishValue.length; i++) {
-
-                    var tempCharCode = englishValue.charCodeAt(i);
-
-                    var processedChar = String.fromCharCode(tempCharCode + rotValue);
-
-                    if (tempCharCode == 32) {
-                        processedChar = " ";
-                    }
-
-                    outputString += processedChar;
-                    
-                }
-
-                caesarTextarea.value = outputString;
-            }
-
-
-            function minmax(value, min, max) 
-            {
-                if(parseInt(value) < min || isNaN(parseInt(value))) 
-                    return min; 
-                else if(parseInt(value) > max) 
-                    return max; 
-                else return value;
-            }
-
-
-
-        </script>
 
     </body>
 </html>

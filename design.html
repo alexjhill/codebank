@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Cypher Info | Morse</title>
+        <title>Cypher Info | Design Specification</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
@@ -12,21 +12,25 @@
         <link rel="stylesheet" type="text/css" href="css/styles-global.css">
         <link rel="stylesheet" type="text/css" href="css/styles-design.css">
 
+        <script type="text/javascript" src="js/header.js"></script>
+
 
     </head>
     <body>
 
         <header id="header">
             <div>
-                <a href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
+                <a id="logo" href="index.html"><img src="img/logo.svg" alt="Cipher logo"></a>
             </div>
-            <div>
+            <div id="menu-icon" onclick="menuShow()">
+                <div></div>
+            </div>
+            <nav id="menu">
                 <ul>
-                    <li><a href="morse.html">Morse Code</a></li>
-                    <li><a href="caesar.html">Caesar Cipher</a></li>
-                    <li><a href="pigpen.html">Pigpen Cipher</a></li>
+                    <li><a id="morse-code-link" href="morse.html">Morse Code</a></li>
+                    <li><a id="caesar-cipher-link" href="caesar.html">Caesar Cipher</a></li>
                 </ul>
-            </div>
+            </nav>
         </header>
 
 
@@ -42,7 +46,7 @@
         <section id="title">
             <div id="section-inner" style="background: #F5F5F5">
                 <div id="title-text">
-                    <h1>Design specification</h1>
+                    <h1>Design spec</h1>
                     <svg width="44px" height="9px" viewBox="0 0 44 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
                         <title>Group 13</title>
@@ -66,7 +70,7 @@
                 </div>
 
                 <div class="spec-section" id="text">
-                    <h3 class="section-header">#Text</h3>
+                    <h3 class="section-header"># Text</h3>
 
                     <h1>Heading 1</h1>
                     <h2>Heading 2</h2>
@@ -81,7 +85,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div class="spec-section" id="links-btns">
-                    <h3 class="section-header">#Links and Buttons</h3>
+                    <h3 class="section-header"># Links and Buttons</h3>
 
                     <a href="#" onclick="return false;">Link</a>
                     <br>
@@ -89,14 +93,14 @@
                     <a class="selected" href="#" onclick="return false;">Link selected</a>
                     <br>
                     <br>
-                    <a class="selected" style="border-left: 3px solid #212121; margin-left: 5px;" href="#" onclick="return false;">List link selected</a>
+                    <a class="selected-li" href="#" onclick="return false;">List link selected</a>
                     <br>
                     <br>
                     <br>
                     <a class="cta" href="#" onclick="return false;">Call to action</a>
                 </div>
                 <div class="spec-section" id="colours">
-                    <h3 class="section-header">#Colours</h3>
+                    <h3 class="section-header"># Colours</h3>
 
                     <ul>
                         <li data-after="Primary Background" style="background: #FFFFFF; color: #212121">#FFFFFF</li>
@@ -111,66 +115,50 @@
 
             </div>
         </section>
-        
 
         <script type="text/javascript">
 
-            window.addEventListener('scroll', scrollFunctions);
-            // window.addEventListener("mousemove", followMouse);
-
-            function scrollFunctions() {
-                headerClassAdder();
-                designMenuCheckers();
-            }
-
-
-            // Changes header style on scroll
-            function headerClassAdder() {
-                var element = document.getElementById('header');
-                var scrollPos = window.scrollY;
-
-                if (scrollPos >= 1) {
-                    element.classList.add('scrolled');
-                } else {
-                    element.classList.remove('scrolled');
-                }
-            }
-
+            window.addEventListener('scroll', designMenuCheckers);
 
 
             function designMenuCheckers() {
+
+                // Gets all links to add and remove classes
                 var textLink = document.getElementById('text-link');
                 var linksBtnsLink = document.getElementById('links-btns-link');
                 var coloursLink = document.getElementById('colours-link');
 
+                // Gets all sections to compare to scroll height
                 var textPos = document.getElementById('text').offsetTop;
                 var linksBtnsPos = document.getElementById('links-btns').offsetTop;
                 var coloursPos = document.getElementById('colours').offsetTop;
 
+                // Stores the scroll position plus the height of the header
                 var scrollPos = window.scrollY + 80;
 
+
+                // Adds and removes classes depending on scroll position
                 if (scrollPos <= textPos) {
-                    textLink.classList.remove('selected');
-                    linksBtnsLink.classList.remove('selected');
-                    coloursLink.classList.remove('selected');
+                    textLink.classList.remove('selected-li');
+                    linksBtnsLink.classList.remove('selected-li');
+                    coloursLink.classList.remove('selected-li');
                 }
                 if (scrollPos >= textPos) {
-                    textLink.classList.add('selected');
-                    linksBtnsLink.classList.remove('selected');
-                    coloursLink.classList.remove('selected');
+                    textLink.classList.add('selected-li');
+                    linksBtnsLink.classList.remove('selected-li');
+                    coloursLink.classList.remove('selected-li');
                 }
                 if (scrollPos >= linksBtnsPos) {
-                    textLink.classList.remove('selected');
-                    linksBtnsLink.classList.add('selected');
-                    coloursLink.classList.remove('selected');
+                    textLink.classList.remove('selected-li');
+                    linksBtnsLink.classList.add('selected-li');
+                    coloursLink.classList.remove('selected-li');
                 }
                 if (scrollPos >= coloursPos) {
-                    textLink.classList.remove('selected');
-                    linksBtnsLink.classList.remove('selected');
-                    coloursLink.classList.add('selected');
+                    textLink.classList.remove('selected-li');
+                    linksBtnsLink.classList.remove('selected-li');
+                    coloursLink.classList.add('selected-li');
                 }
             }
-
         </script>
 
     </body>

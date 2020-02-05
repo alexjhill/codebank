@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="css/styles-global.css">
         <link rel="stylesheet" type="text/css" href="css/styles-home.css">
 
+        <script type="text/javascript" src="js/header.js"></script>
+
 
     </head>
     <body>
@@ -20,13 +22,15 @@
             <div>
                 <a id="logo" href="#" onclick="return false;"><img src="img/logo.svg" alt="Cipher logo"></a>
             </div>
-            <div>
+            <div id="menu-icon" onclick="menuShow()">
+                <div></div>
+            </div>
+            <nav id="menu">
                 <ul>
                     <li><a id="morse-code-link" href="morse.html">Morse Code</a></li>
                     <li><a id="caesar-cipher-link" href="caesar.html">Caesar Cipher</a></li>
-                    <li><a id="pigpen-cipher-link" href="pigpen.html">Pigpen Cipher</a></li>
                 </ul>
-            </div>
+            </nav>
         </header>
 
         <section id="title">
@@ -40,7 +44,7 @@
                             <desc>Created with Sketch.</desc>
                             <defs></defs>
                             <g id="Index---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-101.000000, -320.000000)">
-                                <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#212121">
+                                <g id="Group-3" transform="translate(0.000000, 64.000000)" fill="#202724">
                                     <g id="Group-4" transform="translate(32.000000, 0.000000)">
                                         <g id="Group-6" transform="translate(69.088660, 70.000000)">
                                             <g id="Group-13" transform="translate(0.000000, 186.000000)">
@@ -52,7 +56,7 @@
                                 </g>
                             </g>
                         </svg>
-                        <p>From royalty to international organisations, military forces to serial killers. Ciphers have had many users, all with things to hide. Scroll to unlock histories best kept secrets.</p>
+                        <p>From royalty to international organisations, military forces to serial killers. Ciphers have had many users, all with things to hide. Explore the site to unlock histories best kept secrets.</p>
                     </div>
                     <img id="enigma-machine" src="img/enigma-machine.png" alt="Image of a 1940s Enigma Machine">
                 </div>
@@ -62,7 +66,7 @@
         <section id="intro">
 
             <div id="intro-text">
-                <p id="code-background">+@$@)+1$(0!$%0[@!#!0${0[!@$@!$%(0!$%0[@$@!$%(0)0?!$%0{$%0!#!0?!$%(0{($0[?)$!#!0?!$%(0[!@$@!$(0[${(</p>
+                <p id="code-background">+@$@)+1$(0!0[@!#!0${$@!$(0br!$(0)0?!$%0{$%0!#!0?!$%(0{($0[?)$!#!0?!$(0[!@$@![!0${!@$@!$(0!$%0!#!0${0@$%(0!$%0br!$(0)0?!$%0{$%0!#!0?!$%(0{($0?)$!#!0?!$(0[@!$(0[!0${0[!@$@!0[@$@br!$%$()0?!$%0{$%0!#!0?!$%(0{($0!$%0$@)$!#!0?!$(0[!@$@!$(0[${(@$@)+1$(0!$%0[@!{(</p>
                 <p>Cyphers are repeatable steps called algorithms that are used to encrypt or decrypt secret messages. A message is entered into a cypher, it is processed through the cypher's algorithm, and then an encrypted message is produced as the output.</p>
             </div>
 
@@ -80,63 +84,59 @@
 
         </section>
 
-        <section id="morse-code">
+        <section id="good-vs-bad">
+
+            <div>
+                <h5># &nbsp;Cyphers for good</h5>
+                <p>In the First World War, morse code was used to send important military information. To enable these communications, switchboard operators were employed to manage the various lines of connection. In America, the women who worked on these switchboards were known colloquially as ‘Hello Girls’. They had to be fluent in both English and French and highly skilled with the equipment they were using.</p>
+
+                <br>
+                <br>
+                <br>
+
+                <h5># &nbsp;Cyphers for bad</h5>
+                <p>Through the 1960s and early 1970s, a string of murders were committed by the a serial killer known as The Zodiac Killer. One of the mysteries around this killer was his use of cyphers. On the 1st of August, 1969, three letters were sent to local newspapers, each containing one part of a 408 symbol cryptogram. To this day, only one of the parts has been solved.</p>
+            </div>
+
         </section>
-        <section id="caesar-cipher"></section>
-        <section id="pigpen-cipher"></section>
 
         <footer>
             <a class="cta" href="design.html">Unlock our design literature &rarr;</a>
         </footer>
-        
+
 
         <script type="text/javascript">
 
-            window.addEventListener('scroll', scrollFunctions);
-            // window.addEventListener("mousemove", followMouse);
-
-            function scrollFunctions() {
-                headerClassAdder();
-                imageScroll();
-                // navLinkCheckers();
-            }
-
-
-            // Changes header style on scroll
-            function headerClassAdder() {
-                var element = document.getElementById('header');
-                var scrollPos = window.scrollY;
-
-                if (scrollPos >= 1) {
-                    element.classList.add('scrolled');
-                } else {
-                    element.classList.remove('scrolled');
-                }
-            }
-
-
-            // Scroll 
+            window.addEventListener('scroll', imageScroll);
+            
             function imageScroll() {
+
+                // Finds elements to animate in document
                 var enigmaMachine = document.getElementById('enigma-machine');
                 var card1 = document.getElementById('card1');
                 var card2 = document.getElementById('card2');
                 var card3 = document.getElementById('card3');
+
+                // Stores scroll height
                 var scrollPos = window.scrollY;
 
+                // Prevents function at mobile sizes
                 if ( screen.width > 650 ) {
+
+                    // Calculates translate value and animates elements
                     enigmaMachine.style.top = 100 - (scrollPos * 0.2) + 'px';
                     card1.style.transform = 'translateY(' + (100 - (scrollPos * 0.1)) + 'px)';
                     card2.style.transform = 'translateY(' + (300 - (scrollPos * 0.3)) + 'px)';
                     card3.style.transform = 'translateY(' + (200 - (scrollPos * 0.2)) + 'px)';
                 } else {
+
+                    // Default positions for elements at mobile sizes
                     enigmaMachine.style.top = 0;
                     card1.style.transform = 'translateY(' + 0 + 'px)';
                     card2.style.transform = 'translateY(' + 0 + 'px)';
                     card3.style.transform = 'translateY(' + 0 + 'px)';
                 }
             }
-
-
         </script>
 
     </body>
