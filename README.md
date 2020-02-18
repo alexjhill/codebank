@@ -6,6 +6,8 @@ Codebank is a showcase of the most popular and well known cyphers, including Mor
 
 The site can be viewed [here](https://alexjhill.github.io/codebank/index.html).
 
+![Codebank interface](img/codebank.gif)
+
 * HTML5
 * CSS3
 * JavaScript
